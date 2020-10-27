@@ -41,8 +41,8 @@ public class Tests extends BaseTest {
         }
     }
 
-    //@Ignore
-    @Test(priority = 0)
+    //@Ignoreh
+    @Test(priority = 1)
     public void day1Test() {
         homePage = new HomePage(driver);
         SoftAssert softAssert = new SoftAssert();
@@ -57,7 +57,7 @@ public class Tests extends BaseTest {
     }
 
     //@Ignore
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void day2Test() {
         homePage = new HomePage(driver);
         mobilePage = homePage.clickMobileLink();
@@ -69,7 +69,7 @@ public class Tests extends BaseTest {
     }
 
     //@Ignore
-    @Test(priority = 2)
+    @Test(priority = 3)
     public void day3Test() {
         homePage = new HomePage(driver);
         mobilePage = homePage.clickMobileLink();
@@ -87,8 +87,8 @@ public class Tests extends BaseTest {
     }
 
     //@Ignore
-    @Test(priority = 3)
-    public void day4Test() throws InterruptedException {
+    @Test(priority = 4)
+    public void day4Test() {
         homePage = new HomePage(driver);
         mobilePage = homePage.clickMobileLink();
         comparePopUp = mobilePage.compareTwoPhones("sony", "iphone", "");

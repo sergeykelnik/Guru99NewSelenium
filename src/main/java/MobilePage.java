@@ -2,7 +2,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MobilePage extends BasePage {
 
@@ -82,6 +84,8 @@ public class MobilePage extends BasePage {
         addPhoneToCompare(name2);
         addPhoneToCompare(name3);
         driver.findElement(compareAllButton).click();
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
         for (String currentWindow : driver.getWindowHandles()) {
             driver.switchTo().window(currentWindow);
         }
