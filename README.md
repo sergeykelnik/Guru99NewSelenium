@@ -1,5 +1,5 @@
-# Selenium + Allure + JUnit example
+# Selenium + Allure + TestNG example
 
 ## To run tests and generate Allure report:
 
-* run `mvn clean test && mvn allure:serve`
+* run `mvn clean test -Dbrowser=Edge && mvn allure:serve`

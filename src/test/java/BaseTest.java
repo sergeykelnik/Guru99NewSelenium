@@ -1,20 +1,20 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.testng.annotations.*;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
     WebDriver driver;
 
-    /*@Parameters({"browser"})
+    @Parameters({"browser"})
     @BeforeClass
     public void setUp(String browser) {
         if (browser.equalsIgnoreCase("Chrome")) {
@@ -36,9 +36,9 @@ public class BaseTest {
         } else throw new NoSuchElementException("Wrong browser parameter");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }*/
+    }
 
-    @Parameters({"browser"})
+    /*@Parameters({"browser"})
     @BeforeClass
     public void initiateDriver(String browser) throws MalformedURLException {
         if (browser.equalsIgnoreCase("Chrome")) {
@@ -57,7 +57,7 @@ public class BaseTest {
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }
+    }*/
 
     /*String USERNAME = "pecebbevse1";
     String AUTOMATE_KEY = "RCm2s4XXRqLTEsCdbfMh";
