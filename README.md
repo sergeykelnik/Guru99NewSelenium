@@ -1,4 +1,4 @@
-# Selenide + Allure + JUnit example
+# Selenium + Allure + JUnit example
 
 ## To run tests and generate Allure report:
 
