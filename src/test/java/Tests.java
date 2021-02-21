@@ -41,7 +41,7 @@ public class Tests extends BaseTest {
         }
     }
 
-    //@Ignoreh
+    //@Ignore
     @Test(priority = 1)
     public void day1Test() {
         homePage = new HomePage(driver);
