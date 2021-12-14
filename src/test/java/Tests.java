@@ -23,7 +23,7 @@ public class Tests extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         driver.manage().deleteAllCookies();
-        driver.get("http://live.demoguru99.com/index.php/");
+        driver.get("http://live.techpanda.org/index.php/");
     }
 
     @AfterMethod
