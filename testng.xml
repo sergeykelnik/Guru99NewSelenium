@@ -6,15 +6,19 @@
     <test name="Chrome Test">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="Tests"/>
+            <class name="Tests">
+                <methods>
+                    <include name="day1Test"/>
+                </methods>
+            </class>
         </classes>
     </test>
 
-    <test name="Edge Test">
+    <!--<test name="Edge Test">
         <parameter name="browser" value="Edge"/>
         <classes>
             <class name="Tests"/>
         </classes>
-    </test>
+    </test>-->
 
 </suite>

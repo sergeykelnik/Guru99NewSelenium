@@ -23,7 +23,7 @@ public class Tests extends BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         driver.manage().deleteAllCookies();
-        driver.get("http://live.techpanda.org/index.php/");
+        driver.get(properties.getProperty("siteUrl"));
     }
 
     @AfterMethod
@@ -47,8 +47,12 @@ public class Tests extends BaseTest {
         homePage = new HomePage(driver);
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(homePage.getPageTitle(), "Home page");
+
+        LOGGER.info("Here we click mobile link");
         mobilePage = homePage.clickMobileLink();
         softAssert.assertEquals(mobilePage.getPageTitle(), "Mobile");
+
+        LOGGER.info("Here we sort phones by name");
         mobilePage.sortByName();
         softAssert.assertEquals(mobilePage.getPhoneList().get(0).getText(), "IPHONE");
         softAssert.assertEquals(mobilePage.getPhoneList().get(1).getText(), "SAMSUNG GALAXY");

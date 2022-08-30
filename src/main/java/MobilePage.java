@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class MobilePage extends BasePage {
 
     private By sortByButtons = By.cssSelector(".sort-by select");
@@ -84,7 +86,7 @@ public class MobilePage extends BasePage {
         addPhoneToCompare(name2);
         addPhoneToCompare(name3);
         driver.findElement(compareAllButton).click();
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.numberOfWindowsToBe(2));
         for (String currentWindow : driver.getWindowHandles()) {
             driver.switchTo().window(currentWindow);

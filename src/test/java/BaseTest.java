@@ -6,36 +6,41 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
     WebDriver driver;
+    Properties properties = new Properties();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(BaseTest.class);
 
     @Parameters({"browser"})
     @BeforeClass
-    public void setUp(String browser) {
-        if (browser.equalsIgnoreCase("Chrome")) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-        } else if (browser.equalsIgnoreCase("Firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-        } else if (browser.equalsIgnoreCase("Edge")) {
-            WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
-        } else if (browser.equalsIgnoreCase("Opera")) {
-            WebDriverManager.operadriver().setup();
-            driver = new OperaDriver();
-        } else if (browser.equalsIgnoreCase("IE")) {
-            System.setProperty("wdm.architecture", "X32");
-            WebDriverManager.iedriver().setup();
-            driver = new InternetExplorerDriver();
-        } else throw new NoSuchElementException("Wrong browser parameter");
+    public void setUp(String browser) throws IOException {
+        switch (browser) {
+            case "Chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "Edge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            default:
+                throw new NoSuchElementException("Wrong browser parameter");
+        }
+
+        FileInputStream file = new FileInputStream("src/main/resources/some.properties");
+        properties.load(file);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     /*@Parameters({"browser"})
